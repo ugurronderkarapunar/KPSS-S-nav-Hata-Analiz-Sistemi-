@@ -53,10 +53,10 @@ DEFAULT_LESSONS: list[dict[str, str]] = [
 ]
 
 # Kaynak türleri
-SOURCE_TYPES: list[str] = ["KPSS", "ÖSYM", "Deneme", "Soru Bankası"]
+SOURCE_TYPES: list[str] = ["KPSS","Deneme", "Soru Bankası"]
 
 # Kaynak türlerinden hangileri yıl zorunlu?
-SOURCE_REQUIRES_YEAR: set[str] = {"KPSS", "ÖSYM", "Deneme"}
+SOURCE_REQUIRES_YEAR: set[str] = {"KPSS"}
 
 # Log seviyesi
 LOG_LEVEL: str = os.getenv("LOG_LEVEL", "INFO")
