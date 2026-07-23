@@ -58,14 +58,15 @@ class LessonRepository(BaseRepository):
         return lesson
 
     def seed_defaults(self) -> None:
-        """Varsayılan dersleri ekler."""
-        defaults = [
-            {"name": "Tarih", "code": "TARIH"},
-            {"name": "Vatandaşlık", "code": "VATANDASLIK"},
-        ]
-        for d in defaults:
-            if not self.get_by_code(d["code"]):
-                self.create(**d)
+    """Varsayılan kaynak türlerini ekler."""
+    defaults = {
+        "KPSS": True,
+        "Deneme": False,
+        "Soru Bankası": False,
+    }
+    for name, requires_year in defaults.items():
+        if not self.get_by_name(name):
+            self.create(name=name, requires_year=requires_year)
 
 
 class SourceRepository(BaseRepository):
