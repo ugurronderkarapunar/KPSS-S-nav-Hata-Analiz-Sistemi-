@@ -3,7 +3,6 @@ Yedekleme ve geri yükleme servisi.
 """
 from __future__ import annotations
 
-import json
 import shutil
 from datetime import datetime
 from pathlib import Path
@@ -12,11 +11,8 @@ from typing import Optional
 from sqlalchemy.orm import Session
 
 from config.settings import BACKUP_DIR, DATA_DIR
-from database.models import (
-    Lesson, Source, Question, Option,
-    QuestionSimilarity, OptionCrossMatch, TopicFrequency,
-)
-from database.connection import engine, Base
+from database.models import Base          # <-- Doğru konumdan import
+from database.connection import engine    # engine burada kullanılıyor
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
